@@ -15,6 +15,20 @@ const inputPostNombre =  document.getElementById('inputPostNombre');
 const inputPostApellido  =  document.getElementById('inputPostApellido');
 const btnPost =  document.getElementById('btnPost');
 
+
+botonDel.addEventListener('click', () => {
+    const idBorrar = document.getElementById('inputDelete').value;
+  
+    // Buscar el elemento en el panel por su ID
+    const elementoAEliminar = panel.querySelector(`#${idBorrar}`);
+  
+    if (elementoAEliminar) {
+      elementoAEliminar.remove();
+    } else {
+      console.log("Elemento no encontrado en el panel");
+    }
+  });
+
 btnPost.addEventListener('click', () => {
     const nombre = inputPostNombre.value;
     const apellido = inputPostApellido.value;
@@ -41,3 +55,4 @@ btnPost.addEventListener('click', () => {
         console.error('Error al crear el registro:', e);
       });
   });
+
