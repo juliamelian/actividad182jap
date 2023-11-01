@@ -42,32 +42,33 @@
                     <div class="col-md-6">
                         <div class="border p-3 my-3 position-relative" id="put-box">
                             <h6>Modificar registro</h6>
-                            <input type="number" id="inputPutId" class="form-control"
-                                placeholder="ID del registro a modificar">
-                            <button id="btnPut" class="btn btn-warning position-absolute bottom-0 mb-3" >
-                                Modificar</button>
+                            <input type="number" id="inputPutId" class="form-control" placeholder="ID del registro a modificar">
+                            <button id="btnPut" class="btn btn-warning position-absolute bottom-0 mb-3" data-bs-toggle="modal" data-bs-target="#myModal">
+                                Modificar
+                            </button>
                         </div>
                     </div>
-                    <div class="modal" tabindex="-1">
+                    
+                    <div class="modal fade" id="myModal" tabindex="-1">
                         <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Modal title</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Modificar registro</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Nombre:</p>
+                                    <input type="text" id="nameInput">
+                                    <p>Apellido</p>
+                                    <input type="text" id="lastnameInput">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="saveChanges">Guardar</button>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                              <p>Nombre:</p>
-                              <input type="text" id="nameInput">
-                              <p>Apellido</p>
-                              <input type="text" id="lastnameInput">
-                             </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                              <button type="button" class="btn btn-primary">Guardar</button>
-                            </div>
-                          </div>
                         </div>
-                      </div>
+                    </div>
                     <div class="col-md-6">
                         <div class="border p-3 my-3 position-relative" id="delete-box">
                             <h6>Eliminar registro</h6>
