@@ -16,17 +16,36 @@ const inputPostApellido  =  document.getElementById('inputPostApellido');
 const btnPost =  document.getElementById('btnPost');
 
 
-botonDel.addEventListener('click', () => {
-    const idBorrar = document.getElementById('inputDelete').value;
+btnDelete.addEventListener('click', () => {
+    // Obtén el ID del usuario a eliminar desde el campo de entrada
+    const userId = botonDel.value;
   
-    // Buscar el elemento en el panel por su ID
-    const elementoAEliminar = panel.querySelector(`#${idBorrar}`);
+    // Configura la URL completa para el usuario a eliminar
+    const deleteUrl = `${urlGetListado.value}/${userId}`;
   
-    if (elementoAEliminar) {
-      elementoAEliminar.remove();
-    } else {
-      console.log("Elemento no encontrado en el panel");
-    }
+    // Configura la opción para la solicitud DELETE
+    const options = {
+      method: 'DELETE',
+    };
+  
+    // Realiza la solicitud DELETE
+    fetch(deleteUrl, options)
+      .then(response => {
+        if (response.ok) {
+          return response.json(); // La API suele devolver una respuesta JSON incluso en DELETE
+        } else {
+          throw new Error('No se pudo eliminar el usuario');
+        }
+      })
+      .then(data => {
+        // Muestra la respuesta en el elemento HTML con id 'results'
+        panel.innerHTML = `Usuario eliminado:<br>ID: ${data.id}`;
+        // Puedes personalizar el formato en el que deseas mostrar la respuesta en el panel.
+      })
+      .catch(error => {
+        panel.innerHTML = 'Error al eliminar el usuario';
+        console.error('Error al eliminar el usuario:', error);
+      });
   });
 
 btnPost.addEventListener('click', () => {
