@@ -16,37 +16,34 @@ const inputPostApellido  =  document.getElementById('inputPostApellido');
 const btnPost =  document.getElementById('btnPost');
 
 
-btnDelete.addEventListener('click', () => {
-    // Obtén el ID del usuario a eliminar desde el campo de entrada
-    const userId = botonDel.value;
-  
-    // Configura la URL completa para el usuario a eliminar
-    const deleteUrl = `${urlGetListado.value}/${userId}`;
-  
-    // Configura la opción para la solicitud DELETE
+
+const inputDelete = document.getElementById('inputDelete'); // Campo de entrada para el ID del usuario a eliminar
+
+botonDel.addEventListener('click', () => {
+    const userId = inputDelete.value; // Obtén el ID del usuario a eliminar desde el campo de entrada
+
+    const deleteUrl = `${urlGetListado}/${userId}`; // Configura la URL completa para el usuario a eliminar
+
     const options = {
-      method: 'DELETE',
+        method: 'DELETE',
     };
-  
-    // Realiza la solicitud DELETE
+
     fetch(deleteUrl, options)
-      .then(response => {
-        if (response.ok) {
-          return response.json(); // La API suele devolver una respuesta JSON incluso en DELETE
-        } else {
-          throw new Error('No se pudo eliminar el usuario');
-        }
-      })
-      .then(data => {
-        // Muestra la respuesta en el elemento HTML con id 'results'
-        panel.innerHTML = `Usuario eliminado:<br>ID: ${data.id}`;
-        // Puedes personalizar el formato en el que deseas mostrar la respuesta en el panel.
-      })
-      .catch(error => {
-        panel.innerHTML = 'Error al eliminar el usuario';
-        console.error('Error al eliminar el usuario:', error);
-      });
-  });
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('No se pudo eliminar el usuario');
+            }
+        })
+        .then(data => {
+            panel.innerHTML = `Usuario eliminado:<br>ID: ${data.id}<br>Nombre: ${data.name}<br>Apellido: ${data.lastname}`;
+        })
+        .catch(error => {
+            panel.innerHTML = 'Error al eliminar el usuario';
+            console.error('Error al eliminar el usuario:', error);
+        });
+});
 
 btnPost.addEventListener('click', () => {
     const nombre = inputPostNombre.value;
@@ -68,7 +65,7 @@ btnPost.addEventListener('click', () => {
     fetch(urlPOST, options)
       .then(response => response.json())
       .then(data => {
-        panel.innerHTML = `Nombre: ${data.name}<br>Apellido: ${data.lastname}<br>ID: ${data.id}`;
+        panel.innerHTML = `Registro Agregado:<br>ID: ${data.id}<br>Nombre: ${data.name}<br>Apellido: ${data.lastname}`;
       })
       .catch(e => {
         console.error('Error al crear el registro:', e);
