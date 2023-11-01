@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/bootstrap.css">
     <link rel="stylesheet" href="styles/style.css">
-    <title>CRUD</title>
-    <script src="script.js" defer> </script>
+    <title>CRUD, Equipo 5</title>
+    <script src="scripts/script.js" defer> </script>
 </head>
 
 <body>
 
     <main class="container">
         <div class="row">
-            <div class="col-12 text-center my-3">
-                <h1>JAP CRUD</h1>
+            <div class="header1 col-12 text-center my-3">
+                <h1>JAP <span class="spanh1">Create Read Update Delete</span></h1>
             </div>
         </div>
         <div class="row">
@@ -73,7 +73,7 @@
                         <div class="border p-3 my-3 position-relative" id="delete-box">
                             <h6>Eliminar registro</h6>
                             <input type="number" id="inputDelete" class="form-control" placeholder="ID a eliminar">
-                            <button id="btnDelete" class="btn btn-danger position-absolute bottom-0 mb-3">
+                            <button id="btnDelete" class="btn btn-danger position-absolute bottom-0 mb-3" >
                                 Borrar</button>
                         </div>
                     </div>
@@ -85,28 +85,12 @@
         </div>
     </main>
     <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a
+        <p class="mb-1">Aquí trabajó el equipo 5 de <a class="spanh1" href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a
                 Programar</a></p>
         <p class="mb-1">Generado con fines estrictamente educativos.</p>
     </footer>
     <div class="alert alert-danger fade" id="alert-error" role="alert">
         Algo salió mal...
-    </div>
-    <div class="modal fade" tabindex="-1" id="dataModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <label for="inputPutNombre">Nombre:</label>
-                    <input type="text" id="inputPutNombre" class="form-control my-1">
-                    <label for="inputPutApellido">Apellido:</label>
-                    <input type="text" id="inputPutApellido" class="form-control my-1">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="btnSendChanges" >Guardar</button>
-                </div>
-            </div>
-        </div>
     </div>
     <script src="scripts/bootstrap.bundle.js"></script>
     <script src="scripts/script.js"></script>
@@ -114,4 +98,4 @@
 
 </html>
 
-<!-- grupo 5 -->
+<!-- Equipo 5 U Know! -->
